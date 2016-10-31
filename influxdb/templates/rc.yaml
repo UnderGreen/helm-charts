@@ -33,5 +33,6 @@ spec:
         configMap:
           name: {{template "fullname" .}}
       - name: influxdb-storage
-        emptyDir: {}
+        hostPath:
+          path: /var/lib/data/influxdb
           
