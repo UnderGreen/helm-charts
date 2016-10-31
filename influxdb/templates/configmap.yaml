@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{template "fullname" .}}
+  labels:
+    release: {{.Release.Name | quote}}
+    name: {{template "fullname" .}}
+    heritage: {{.Release.Service | quote}}
+data:
+  influxdb.toml: >
+{{.Files.Get "influxdb.toml" | indent 4}}

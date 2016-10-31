@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{template "fullname" .}}
+  labels:
+    heritage: {{.Release.Service | quote}}
+    release: {{.Release.Name | quote}}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    namespace: kube-system
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: {{default 8083 .Values.httpPort }}
+    nodePort: {{default 32501 .Values.httpNodePort }}
+  - name: api
+    port: {{default 8086 .Values.apiPort }}
+    nodePort: {{default 32502 .Values.apiNodePort }}
+  selector:
+    name: {{template "fullname" .}}
