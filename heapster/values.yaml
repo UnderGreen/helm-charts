@@ -1,0 +1,5 @@
+image: undergreen/monitoring-heapster
+imageTag: 1.0.2
+
+influxdb:
+  apiPort: 8086

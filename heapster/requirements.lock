@@ -1,0 +1,6 @@
+dependencies:
+- name: influxdb
+  repository: http://127.0.0.1:8879/charts
+  version: 0.1.0
+digest: sha256:1a4dfd367f1fe756386e97510173c653458b8902e6dd10badc46bd732b2a0d9d
+generated: 2016-10-31T20:37:52.970299353+07:00
